@@ -1,0 +1,58 @@
+@startuml
+
+package "com.Examen_4TP.Clases.HaltChecker" {
+    abstract class AbstractHandler {
+        - Handler nextHandler
+        + void setNext(Handler handler)
+        + void handle(List<String> tokens)
+    }
+
+    interface Handler {
+        + void setNext(Handler handler)
+        + void handle(List<String> tokens)
+    }
+
+    class AnalyzerHandler {
+        - HaltCheckerSintaxis haltSintaxis
+        - HaltCheckerLexico haltLexico
+        + void handle(List<String> tokens)
+    }
+
+    class HaltChecker {
+        + boolean analizarCodigo(List<String> tokens)
+    }
+
+    class HaltCheckerContador {
+        + boolean analizarCodigo(List<String> tokens)
+        - boolean analyzeWhile(List<String> tokens, int startIndex)
+        - boolean analyzeFor(List<String> tokens, int startIndex)
+        - boolean analyzeIf(List<String> tokens, int startIndex)
+    }
+
+    class HaltCheckerHandler {
+        - HaltCheckerContador haltChecker
+        - Reverser reverser
+        + void handle(List<String> tokens)
+    }
+}
+
+package "com.Examen_4TP.Clases.Reverser" {
+    class Reverser {
+        + boolean toggleAndCount(boolean flag)
+    }
+}
+
+package "com.Examen_4TP.Clases.Tokens" {
+    class Tokenizador {
+        + List<String> tokenize(String text)
+    }
+}
+
+Main --> Handler
+Main --> Tokenizador
+
+AbstractHandler <|-- AnalyzerHandler
+AbstractHandler <|-- HaltCheckerHandler
+HaltChecker <|-- HaltCheckerContador
+
+@enduml

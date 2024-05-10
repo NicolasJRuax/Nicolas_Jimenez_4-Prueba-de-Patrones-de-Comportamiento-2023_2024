@@ -1,0 +1,17 @@
+@startuml
+
+left to right direction
+
+actor Usuario
+
+rectangle "Gestión del Código Fuente" as GestionCodigoFuente {
+    usecase "Tokenizar Código" as Tokenizar
+    usecase "Analizar Sintaxis" as AnalizarSintaxis
+    usecase "Verificar Bucles Infinitos" as VerificarBucles
+}
+
+Usuario --> Tokenizar
+Usuario --> AnalizarSintaxis
+AnalizarSintaxis --> VerificarBucles
+
+@enduml
