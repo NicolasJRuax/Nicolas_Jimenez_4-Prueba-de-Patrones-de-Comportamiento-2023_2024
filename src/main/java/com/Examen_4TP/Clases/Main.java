@@ -1,17 +1,24 @@
 package com.Examen_4TP.Clases;
+import com.Examen_4TP.Clases.HaltChecker.AnalyzerHandler;
+import com.Examen_4TP.Clases.HaltChecker.HaltCheckerHandler;
+import com.Examen_4TP.Clases.HaltChecker.Handler;
+import com.Examen_4TP.Clases.Tokens.Tokenizador;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        // Creamos el tokenizer
+        Tokenizador tokenizer = new Tokenizador();
+        List<String> tokens = tokenizer.tokenize("int i = 0; while(true) { i++; }");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        // Configuramos la cadena de responsabilidad
+        Handler syntaxAnalyzer = new AnalyzerHandler();
+        Handler haltChecker = new HaltCheckerHandler();
+
+        syntaxAnalyzer.setNext(haltChecker);
+
+        // Empezamos el procesamiento
+        syntaxAnalyzer.handle(tokens);
     }
 }

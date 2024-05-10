@@ -38,7 +38,7 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-    9</dependencies>
+    </dependencies>
 
     <build>
         <plugins>
@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.Examen_4TP.Main</mainClass>
+                            <mainClass>com.Examen_4TP.Clases.Main</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
