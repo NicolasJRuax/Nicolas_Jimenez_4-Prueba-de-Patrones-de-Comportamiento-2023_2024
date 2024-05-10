@@ -1,4 +1,6 @@
-package com.Examen_4TP.Clases;
+package com.Examen_4TP.Clases.Reverser;
+
+import com.Examen_4TP.Clases.HaltChecker.HaltChecker;
 
 // Clase que proporciona el método execute para ejecutar el reverser.
 public class ReverserUsable {

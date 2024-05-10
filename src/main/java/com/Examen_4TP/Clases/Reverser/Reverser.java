@@ -1,4 +1,6 @@
-package com.Examen_4TP.Clases;
+package com.Examen_4TP.Clases.Reverser;
+
+import com.Examen_4TP.Clases.HaltChecker.HaltChecker;
 
 // Clase que ejecuta la comprobación y reversión del programa que se detiene o no se detiene.
 public class Reverser {

@@ -1,4 +1,4 @@
-package com.Examen_4TP.Clases;
+package com.Examen_4TP.Clases.HaltChecker;
 
 // Clase que contiene un método para verificar si un programa se ejecutará en un bucle infinito.
 public class HaltChecker {
